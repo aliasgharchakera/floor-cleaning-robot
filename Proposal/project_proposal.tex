@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{listings}
+
+% Page setup
+\geometry{
+    top=1in,
+    bottom=1in,
+    left=1in, % Adjust the left margin
+    right=1in, % Adjust the right margin
+}
+
+% breaklines=true,
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[R]{Optimizing Cleaning Paths for Robots in Domestic Settings} % Add this line to set the header on the right side
+\renewcommand{\headrulewidth}{0pt} % Remove the horizontal line in the header
+
+% Define section numbering format
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Title Page
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\LARGE\textbf{EE/CE 468 : Mobile Robotics}\par}
+    \vspace{0.5cm}
+    % {\Large Project Proposal\par}
+    % \vspace{0.2cm}
+    {\Large Optimizing Cleaning Paths for Robots in Domestic Settings\par}
+    \vspace*{\fill} % Vertically center the logo and text
+    {\large Ali Asghar Yousuf $\mid$ ay06993@st.habib.edu.pk\par}
+    {\large Muhammad Azeem Haider $\mid$ mh06858@st.habib.edu.pk\par}
+    \vspace{2cm}
+    \includegraphics[height=7cm]{../HU_logo}\\\bigskip
+    {\large \today}\\\bigskip\bigskip
+    \vspace{1cm}
+    \vspace{2cm}
+    {\large Dhanani School of Science and Engineering\par}
+    {\large Habib University\par}
+    {\large Fall 2023\par}
+    \vspace*{\fill} % Vertically center the copyright text
+    {\large Copyright @ 2023 Habib University\par}
+\end{titlepage}
+
+% Index page
+\thispagestyle{empty} % No page number on index page
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+Cleaning paths for robots at homes are usually obstructed by furniture present
+which leads to inefficient work. Mobile robots for cleaning at home such as the
+``Roomba'' by iRobot, has been described as drunk due to them getting stuck
+under furniture and stop working after hitting obstacles in their path. The
+project aims to research the cleaning and obstacle finding algorithms of these
+robots in domestic settings and study on how these can be implemented in a
+manner where the path planning of the robot is much more efficient for cleaning
+purposes.
+
+\section{Motivation}
+Path-finding algorithms have played a central role in the field of mobile
+robotics since its inception. It is intriguing to delve into why cleaning
+robots in domestic settings encounter obstacles that hinder their ability to
+identify the optimal cleaning path. Gaining deeper insights into this problem,
+along with exploring the various algorithms applied to these robots and their
+corresponding impacts, can help establish a consensus regarding the algorithm
+with the greatest potential. Subsequently, optimizing this chosen algorithm
+holds the promise of enhancing the path-finding challenge for cleaning robots.
+
+\section{Constraints}
+A cleaner robot operates in a household environment so there a number of
+constraints that need to be considered including the following:
+
+\begin{enumerate}
+    \item \textbf{Obstacles} - The environment may contain various obstacles such as furniture, walls, and other objects
+    \item \textbf{Varying Floor Types} - The floor types may vary from carpeted to wooden floors
+    \item \textbf{Dynamic Environment} - Consider whether there will be people or pets moving in the environment during operation.
+    \item \textbf{Elevated Surfaces} - The environment may contain elevated surfaces such as stairs
+\end{enumerate}
+
+Since we will be working with a simulated environment, we will be able to
+control the constraints to a certain extent. However, we will still need to
+consider the constraints in our algorithm.
+
+\section{Minimum Functions}
+A Minimum Viable Product (MVP) for this project involves the development of a
+mobile robot operating on an algorithm designed to determine the optimal
+cleaning path within a broad spectrum of domestic settings. The robot's primary
+functions include identifying the most efficient global and local cleaning
+paths. Additionally, it should be capable of adapting to various domestic
+environments for testing purposes. The MVP is expected to demonstrate a
+noticeable improvement when compared to the existing path-finding algorithms
+commonly utilized in domestic settings. \newline \newline The minimum viable
+product should also include the ability to focus on a particular area of the
+domestic setting if the user customizes the cleaning preference. For example,
+if the user asks the cleaning to be focused more o
+
+\section{Algorithm and Framework}
+There are a number of algorithms that can be used for path finding. We will
+choose algorithms from the following list* and compare them to determine which
+one is most suitable for our project:
+
+\begin{enumerate}
+    \item \textbf{A*} - A* is a graph traversal and path search algorithm, which is often used in many fields of computer science due to its completeness, optimality, and optimal efficiency. One major drawback of A* is that it is not able to find the shortest path in a weighted graph, which is a major concern for our project.
+    \item \textbf{Dijkstra's Algorithm} - Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It is slower than A* but is able to find the shortest path in a weighted graph.
+    \item \textbf{Rapidly-exploring Random Tree (RRT)} - RRT is an algorithm designed to efficiently search nonconvex, high-dimensional spaces by randomly building a space-filling tree. The tree is constructed incrementally from samples drawn randomly from the search space and is inherently biased to grow towards large unsearched areas of the problem. RRT is a good algorithm for path finding in dynamic environments.
+    \item \textbf{Probabilistic Roadmap (PRM)} - PRM is an algorithm for path planning that samples the configuration space by randomly placing configurations (nodes) and testing to see if they are in collision. If a configuration is collision-free, it is connected to its nearest neighbors to create a roadmap. The roadmap is then searched for a path between the start and goal configurations. PRM is a good algorithm for path finding in dynamic environments.
+    \item \textbf{Random Walk and Spiral Cleaning} - Roombas often use a randomized approach to cover the entire floor area efficiently. They may follow a random walk pattern to clean most areas. When they encounter an obstacle or reach a boundary, they might switch to a spiral cleaning pattern to ensure coverage.
+    \item \textbf{Wall Following} - Wall following is a common algorithm used by Roombas, where the robot moves along the edges of walls and obstacles.
+\end{enumerate}
+
+We will be using the ROS framework for our project. As we are already familiar
+with ROS, it will be easier for us to implement our algorithm in ROS. We will
+be using the Gazebo simulator to simulate our environment.*
+
+
+*Note: The list of algorithms and the framework is subject to change. 
+\section{Timeline}
+A rough timeline of our project and its components looks something like this.
+
+\begin{itemize}
+    \item \textbf{Literature Review (Sunday, 29th October)} - It is essential that we thoroughly review the literature involved regarding path finding algorithms for cleaning robots. Looking at the existing literature properly would ensure that we understand the attempts to address the problems, and get introduced to algorithms and techniques employed to fix the path-finding problem in a domestic setting.
+    \item \textbf{Testing and Comparison of Algorithms (Sunday, 12th November)} - The next step in our project will be testing the existing algorithms for the path-finding problem and how the approaches taken in these algorithms differ from each other. It is essential that we understand the different algorithms and their unique approaches, and decide which algorithm is the closest to solving the path-finding problem.
+    \item \textbf{Optimizing the Algorithm (Friday, 1st December)} - Once we have decided which algorithm is the closest to solving the path-finding problem in cleaning robots, we will try and optimize the algorithm to solve the potential problems that we have identified. Furthermore, optimizing the path-finding algorithm to ensure that cleaning robots do not stop once they obstructed by a robot.
+    \item \textbf{Result and Findings (8th December)} Summarizing the results and findings of our project in an IEEE format for a research paper.
+\end{itemize}
+
+\section{Risks Involved with the Project}
+The path-finding problem is a fundamental issue that can be approached in
+various ways. However, the persistence of this problem in the context of
+cleaning robots in domestic settings suggests that there are specific
+situations and anomalies where these robots encounter challenges in determining
+their optimal paths. \newline \newline While this challenge has yet to be fully
+addressed by major companies such as iRobot, it raises the question of whether
+the path-finding problem in unique situations is currently too complex to
+resolve. Furthermore, it is essential to test our algorithm in various domestic
+settings. This is crucial to ensure that we do not adopt an algorithm and
+modify it in a manner that exclusively works for a particular type of
+environment but fails to operate efficiently in a different one. \newline
+\newline The risk is that whichever algorithm we employ, the algorithm will not
+be tested in a sufficient number of environments to conclusively claim that
+this algorithm and its modification works the best for path-finding problems in
+domestic settings.
+\end{document}
