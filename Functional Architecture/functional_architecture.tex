@@ -55,13 +55,68 @@
 \clearpage
 
 \section{Introduction}
-Cleaning paths for robots at homes are usually obstructed by furniture present
-which leads to inefficient work. Mobile robots for cleaning at home such as the
-``Roomba'' by iRobot, has been described as drunk due to them getting stuck
-under furniture and stop working after hitting obstacles in their path. The
-project aims to research the cleaning and obstacle finding algorithms of these
-robots in domestic settings and study on how these can be implemented in a
-manner where the path planning of the robot is much more efficient for cleaning
-purposes.
+In domestic environments, cleaning mobile robots often encounter challenges related to optimal path planning, leading to obstructions by furniture and subsequent halts, requiring human intervention for repositioning. The following project seeks to develop an effective path planning strategy for mobile robots in domestic settings to enable seamless and uninterrupted home cleaning through robotics. To achieve this goal, the robot will undertake the following functions. This document outlines the functions to be executed by the robot and describes the testing approach for these functions once the functions have been implemented.
+
+\section{Functions}
+In the following section, we will introduce the four functions that have been identified as instrumental for the robot's success in planning its path effectively and without encountering problems. These functions are crucial in ensuring the robot's path planning is optimized and free from obstacles.
+
+\subsection{Global Path Planning}
+The initial function that the mobile robot performs is Global Path Planning. It begins by using the provided \textit{current coordinates} and \textit{room dimensions} to devise an optimal cleaning path. The robot generates a room map, representing the space as a grid, where each cell corresponds to a specific part of the room based on the dimensions provided. 
+
+As the robot navigates through the room, it dynamically updates the map, marking cells as obstacles when obstructions are encountered. The robot's sensors play a pivotal role in detecting obstacles, and the robot stores the positions of these obstacles in its memory. Each time an obstacle is detected, the robot re-evaluates its optimal path, taking the newly identified obstacle into account. The initial path is formulated without considering obstacles, as the robot is initially unaware of their presence. 
+
+Consequently, the path planning continuously refines itself to accommodate these obstacles. This iterative process of mapping, obstacle detection, and path recalculation ensures that the robot can adapt and optimize its cleaning path, allowing it to effectively cover the entire room while avoiding obstructions.
+
+\subsection{Coverage of the Room}
+This function entails that the robot moves throughout the available space not missing any points in the room which it does not clean. The primary objective of a home cleaning robot is to cover and clean the entire area of the room effectively. Achieving complete coverage ensures that no part of the room is left untouched. The following function will be implemented in a manner such that the robot moves in a spiral pattern to ensure that it covers each area of the room without leaving any spots uncleaned. The sensor feedback from the LIDAR* and object-detecting cameras* will further ensure the Robot to not leave any spots unclean. 
+
+\subsection{Obstacle Avoidance}
+Obstacle detection and avoidance are crucial functions that set our robot apart from those that collide with obstacles and require human intervention. To ensure effective obstacle avoidance, the robot relies on real-time data from its LIDAR* and object-detecting camera*. When an obstacle is detected, the robot stores information about its size, and its global location according to the robot sensors. Once an obstacle is identified, the robot swiftly reroutes to the next calculated optimal path. This streamlined process ensures that our robot can autonomously navigate around obstacles, making it highly reliable.
+
+\subsection{Rerouting to Optimal Path after Obstacle Avoidance}
+The rerouting function plays a crucial role in ensuring the robot's continuous movement around the room, allowing it to return to its starting position and maintain efficient cleaning. When the robot encounters and successfully avoids an obstacle, it promptly recalculates its global path, prioritizing the most efficient way to navigate around the obstacle. This re-calibration process enables the robot to optimize its route and adapt to changes in real-time.
+
+Moreover, the robot differentiates between two types of path planning: local and global. Local path planning is employed for immediate obstacle avoidance, ensuring the robot can navigate around obstructions without delay. On the other hand, global path planning focuses on covering the entire room systematically. The robot periodically revisits global path planning to account for any encountered obstacles, making necessary adjustments to its route. To maintain a proactive approach, the robot continually monitors its surroundings for both static and moving obstacles. This vigilance ensures that the robot can swiftly respond to changes in its environment, offering reliable obstacle avoidance and efficient cleaning performance.
+
+\section{Testing Plan}
+The testing plan for the project aims to test the major functions of the robot in a simulated environment. The testing plan is as follows:
+
+\begin{enumerate}
+    \item \textbf{Detect obstacles:} The robot will be tested in a simulated environment where it will be given a set of
+          obstacles to detect ranging from simple geometric shapes to more complex
+          shapes such as furniture. The robot will be tested on how it detects these
+          obstacles. The project will also aim to incorporate dynamic objects such as pets and humans.
+
+    \item \textbf{Avoid Obstacles:} Based on the previous test, the robot will be
+          tested on how it avoids the obstacles in its path, and how the robot
+          changes its path to avoid the obstacles. This will also factor in the
+          deviation of the robot from its original path.
+
+    \item \textbf{Cleaning Path:} The robot will be tested on the total area it
+          covers in different environments. The area will be calculated based on the
+          path the robot takes to clean the area and compared to the total area of
+          the environment. This will give us insights on its
+          strengths and weaknesses in different environments.
+
+    \item \textbf{Cleaning Efficiency:} Extending from the previous test, the
+          robot will be tested on how efficiently it cleans the area. This will
+          be done by testing the robot on how much time and distance it takes to clean the
+          area, and how much area it covers in that time.
+\end{enumerate}
+
+\section{Updated Timeline}
+A rough timeline of our project and its components looks something like this.
+
+\begin{itemize}
+    \item \textbf{Environment Setup (Sunday, 12th November)} - Research on the perfect environment and setting up the environment for the mobile robot to program will be important. If the environment selected is near perfect, the project will become all the more easier.
+    
+    \item \textbf{Testing and Comparison of Algorithms (Sunday, 26th November)} - Testing the existing algorithms for the path-finding problem and how the approaches taken in these algorithms differ from each other. It is essential that we understand the different algorithms and their unique approaches, and decide which algorithm is the closest to solving the path-finding problem.
+    
+    \item \textbf{Optimizing the Algorithm (Friday, 1st December)} - Once we have decided which algorithm is the closest to solving the path-finding problem in cleaning robots, we will try and optimize the algorithm to solve the potential problems that we have identified. Furthermore, optimizing the path-finding algorithm to ensure that cleaning robots do not stop once they obstructed by a robot.
+
+    \item \textbf{Testing (Monday, 4th December)} - The robot will be tested in various different environments and scenarios to confirm the robustness and weaknesses of the solution provided by the project for the path-planning problem of domestic cleaning robots. 
+    
+    \item \textbf{Result and Findings (8th December)} Summarizing the results and findings of our project in an IEEE format for a research paper.
+\end{itemize}
 
 \end{document}
