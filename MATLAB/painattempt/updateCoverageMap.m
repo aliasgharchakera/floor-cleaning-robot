@@ -4,10 +4,14 @@ function updatedCoverageMap = updateCoverageMap(coverageMap, currentPose, gridSi
     % gridSize: Size of each grid cell
 
     % Convert the robot's position to grid coordinates
-    gridPos = ceil(currentPose(1:2) / gridSize);
+    currentGridPos = round(currentPose(1:2) ./ gridSize);
+
+    % Ensure the indices are within the bounds of the coverageMap
+    currentGridPos(1) = max(1, min(size(coverageMap, 1), currentGridPos(1)));
+    currentGridPos(2) = max(1, min(size(coverageMap, 2), currentGridPos(2)));
 
     % Mark the current cell as covered
-    coverageMap(gridPos(1), gridPos(2)) = 1;
+    coverageMap(currentGridPos(1), currentGridPos(2)) = 1;
 
     updatedCoverageMap = coverageMap;
 end
