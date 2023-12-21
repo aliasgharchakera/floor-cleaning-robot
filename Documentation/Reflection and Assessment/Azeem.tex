@@ -8,10 +8,10 @@
 
 % Page setup
 \geometry{
-  top=1in,
-  bottom=1in,
-  left=1in, % Adjust the left margin
-  right=1in, % Adjust the right margin
+    top=1in,
+    bottom=1in,
+    left=1in, % Adjust the left margin
+    right=1in, % Adjust the right margin
 }
 
 % breaklines=true,
@@ -52,50 +52,63 @@
 
 \section{Understanding Fundamental Concepts of Mobile Robotics}
 
-Since the commencement of our course in August, we've delved into fundamental concepts in Mobile Robotics. However, I still find some of these concepts, such as frames of reference and the application of Rotation Matrix for switching frames, a bit perplexing. This confusion was notably reflected in my Quiz 1 grades. While self-reflection on abstract concepts like frames of reference might pose a challenge, I plan to revisit the slides or corresponding chapters in the textbook to evaluate my current understanding.
-
-Throughout this project, my primary learning goal is to thoroughly comprehend these fundamental mobile robotics concepts to the best of my abilities. I aim to achieve this understanding through practical, hands-on work within the project's scope. This comprehension holds pivotal significance for me to deem this course a success. I plan to assess my progress by the end of the project through practical implementation and self-reflection on these concepts. Gaining a robust grasp of these principles is not only a goal for this course but also a foundational element for potential future personal projects in robotics. 
-
-\subsection{Assessment Plan}
-
-To assess my understanding of fundamental Mobile Robotics concepts, I will employ the following criteria:
-
-\begin{enumerate}
-    \item \textbf{Practical Implementation:} I will undertake specific tasks within the project that require the application of concepts taught in the course. Success in implementing these tasks will indicate a deep understanding. The success of these implementations can be gauged by the grades received.
-    
-    \item \textbf{Self-Reflection:} Regular self-reflection on my comprehension of fundamental concepts will be documented. I will write journal notes about it tri-weekly. This reflection will include challenges faced, solutions found, and areas that need further exploration.
-
-    \item \textbf{Project Outcome Evaluation:} The success of the overall project, especially in areas directly linked to fundamental Mobile Robotics concepts, will serve as a comprehensive assessment of my understanding. Similar to \textit{Practical Implementation}, the outcomes/grades achieved on the project will also be a good self-check for evaluating if I understand fundamental concepts or not.  
-\end{enumerate}
+At the start of the course, in my first quiz I got a 31.5/100. This was a big
+setback especially considering I actually studied for the course but despite my
+efforts, the results showed gaps in my knowledge and understanding. Over the
+course of the semester, I have improved my quiz grades, and that is something I
+believe is a proof of better understanding of fundamental concepts of mobile
+robotics. While I by no means mean that the improvement in my quiz grades is a
+sure-fire proof of my understanding of the fundamental concepts of mobile
+robotics, I do believe that it is a good indicator, and I can build on this
+improvement. The practical implementation of the robotics project was carried
+out in different phases. The first step was to come up with a strategy in
+theoretical realms and then look for literature based on that strategy. While
+we did not find much literature on random walk, we did find a couple of good
+research papers comparing different random walk algorithms for coverage
+problem. I implemented random walk strategies in Matlab and the strategy grew
+into a more sophisticated spiral random walk algorithm which can be seen in the
+results. \newline \\ While I was unable to take journal notes, I want to talk
+about how the understanding of fundamental concepts help me grow interest in
+the course. From almost withdrawing from the course at one point, going through
+the books to better understand simple concepts such as frames of reference and
+kinematic model helped me alot, these simple concepts built one upon another
+and helped bring the course to a happy end for me in terms of learning albeit
+it does not very successfully translate in terms of grades. I believe that
+project outcome was successful in terms of learning. While we were unable to
+implement a super complex coverage algorithm, we implemented a simple algorithm
+that does the same thing and created a strategy on our own. I am not entirely
+sure what grade I would give myself because of the varying factors in this
+goal, but I am happy with how I have grown as a mobile robotics student.
 
 \section{Improving Matlab and Robotics Programming Skills}
 
-As a student who transitioned from an Electrical Engineering major to a Computer Science major, I've had some exposure to using Matlab in courses like Electric Circuit Analysis and Mechanics and Thermodynamics labs. I believe that Matlab is an excellent platform, and I aspire to master it to a level where I can use it with the same ease as programming languages like Python. In the realm of robotics programming, my goal is to become proficient in coding mobile robots that operate efficiently and can successfully execute the functions our group plans to implement. By enhancing my robotics programming skills, I can even consider taking on more challenging projects, such as designing a mobile robot for deep-sea exploration in extremely harsh environments.
-
-\subsection{Assessment Plan}
-
-The following assessment plan will be implemented to assess my programming and Matlab skills:
-
-\begin{enumerate}
-    \item \textbf{Peer Evaluation:} Seeking help from ECE students who have taken the Introduction to Robotics course and are more fluent with Matlab and Robotics programming. Asking them for reviews and feedback will be a good way to assess how successful I have been in fulfilling this goal. 
-
-    \item \textbf{Problem-Solving Capability:} The ability to troubleshoot and debug code effectively will be evaluated. I will document instances where I encountered challenges and how efficiently I resolved them. This documentation will help me get a better reflection on how efficient I am at solving problems or when I encounter difficulties.
-
-    \item \textbf{Coding Proficiency:} I will assess my comfort level and efficiency in writing Matlab code for robotics applications. Success will be measured by the clarity, conciseness, and functionality of the code. The instructor will provide comments on the code files provided, and these comments will help me assess how proficient I really am. 
-\end{enumerate}
+I would say that I have not become extremely proficient in Matlab but over the
+course of this semester Matlab has grown on to me especially for the reason of
+simple mathematical operations such matrix multiplication. I have taken help
+from ECE students in the class who are better and more comfortable at Matlab
+than I am numerous times over the course of this semester, and learning in that
+manner has always been helpful to me. While I did not have the need to explore
+the documentation of Matlab, I found myself on the Mathworks forum quite a
+number of times trying to find the answer to my problem. \newline \\ I believe
+I can still write better code in Matlab, my error handling in Matlab is not the
+best and at times I find myself stuck on trivial errors due to not being able
+to catch errors which is a result of poor error handling code. However, I have
+overall improved my Matlab and Robotics programming skills and that can be seen
+through the solution of homeworks and project implementation. I will give
+myself a satisfactory grade, because I have done enough to know how Matlab
+works to a good enough extent but there is realistically still a lot to learn
+about Matlab before I can call myself a complete expert in Matlab which to be
+fair is probably an extremely difficult task and there are hardly any Matlab
+expert.
 
 \section{Path-Finding Algorithms}
+Over the course of this project, I have learned about different path-finding
+algorithms and most importantly the difference between path-finding and the
+coverage problem. While our project mainly focuses on the coverage of the robot in the room to clean the floors efficiently, I am still extremely interested in path finding algorithms and I want to learn more about them especially in regards to how autonomous robots can find the optimum path underwater. 
+\newline \\
+With regards to our project specifically, we focused on path coverage algorithms along with obstacle avoidance and not path finding algorithms. For path coverage we used spiral random walk which is one of the clever ways to cover the extent the entirety of the room theoretically. In addition, when searching for literature, I found that random walk is used for coverage problems previously, and spiral walk is considered to be the best random walk algorithm, so the literature does support our use of spiral random walk. Finally I would give myself an A for formulating and solving the problem theoretically before moving on to its practical implementation. I believe bouncing theoretical ideas off of each other in the group really helped us finalize a strategy for the project.
 
-The Path-Finding problem is of great interest to me, particularly in how it pertains to the way robots determine the optimal path for their movements. By the culmination of this project, my goal is to attain a high level of proficiency in Path-Finding algorithms, enabling me to successfully apply these algorithms to a variety of robots in order to identify the most efficient routes. This knowledge will prove invaluable not only in this project but also for any personal endeavors I might undertake in the future. For instance, the prospect of constructing a mobile robot for deep-sea exploration interests me. With a thorough grasp of Path-Finding algorithms, I would be well-equipped to embark on such an ambitious venture. By the end of our project and the result of that project, I will be able to gauge if I know enough about the path-finding problem and algorithms related to it. 
-
-\subsection{Assessment Plan}
-
-\begin{enumerate}
-    \item \textbf{Algorithm Implementation:} The successful implementation of the algorithm would mean that the project is successful to a higher degree. A better algorithm implementation would result in a more efficient domestic cleaning robot.
-    
-    \item \textbf{Comparison to Results Found in Literature Review:} The results of the implementation of path-finding algorithms will be compared to implementations found in the literature review. This too will be a good method to understand how successful I was when implementing the Path-finding algorithms. This comparison will be a good metric to know if I know enough about the problem and whether I implemented it correctly. 
-\end{enumerate}
-
-The assessment plan depends on reviews from the instructor and peers, but what is also important is to keep a journal and document my progress so I could notice in writing how I improved and, more importantly, if I improved in my learning goals for the project. While my learning goals remain the same, the assessment of these learning goals will be of great importance moving forward. 
+\section{Ending Notes}
+Overall the course Mobile Robotics was even more challenging than I estimated it to be. Especially coming from a computer science background and having so little knowledge about fundamental concepts such as feedback loop, it was a steep learning curve, but I loved every minute of this confusing journey because the peers in the course and the instructor have been extremely helpful and considerate throughout. The course was a proper learning journey from quizzes to the project, and I am grateful for sticking with the course to the end. 
 
 \end{document}
