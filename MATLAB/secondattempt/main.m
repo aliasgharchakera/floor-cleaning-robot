@@ -13,6 +13,15 @@ RANDOM_WALK = 1;
 WALL_FOLLOW = 2;
 COMPLETED_WALL_FOLLOW = 3;
 
+% Add PID constants
+kp = 2; % Proportional gain
+ki = 0; % Integral gain
+kd = 0; % Derivative gain
+
+% Initialize PID variables
+integral = 0;
+previousError = 0;
+
 % User is asked for the duration of the robot's operation in seconds.
 defaultValue = '300';  % Default duration as a string for 300 seconds.
 userPrompt = 'Enter the duration for the robot to move (in seconds): ';
@@ -73,9 +82,8 @@ while rostime('now') < endTime
             
         case WALL_FOLLOW
             if ~wallFollowed
-                [linearVel, angularVel, wallFollowed] = followWall(scanData, safetyDistance);
+                [linearVel, angularVel, wallFollowed] = wallFollowPID(scanData, safetyDistance, kp, ki, kd, integral, previousError, timeStep);
                 if wallFollowed
-                    % Transition back to random walk after following the wall
                     currentState = RANDOM_WALK;
                 end
             end
