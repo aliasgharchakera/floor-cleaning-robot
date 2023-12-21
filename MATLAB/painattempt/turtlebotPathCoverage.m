@@ -103,7 +103,7 @@ while rate.TotalElapsedTime < 30
 
 
     % Update Coverage Map
-    updateCoverageMap(coverageMap, currentPose); % Define this function
+    updateCoverageMap(coverageMap, currentPose, grid_size); % Define this function
 
 
 	% Assign and send velocity commands
@@ -145,4 +145,4 @@ figure;
 plot(xTruth(1,:),xTruth(2,:),'k.');
 hold on;
 plot(x(1,:),x(2,:),'b.');
-imshow(coverageMap);
+% imshow(coverageMap);

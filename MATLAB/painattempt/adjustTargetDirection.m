@@ -6,7 +6,11 @@ function [targetDirection, updatedCppPath] = adjustTargetDirection(cppPath, curr
     % Find the closest point on the path to the robot's current position
     % Convert the robot's current position to grid coordinates
     currentGridPos = ceil(currentPose(1:2) ./ gridSize);
-    distances = vecnorm(cppPath - currentGridPos, 2, 2);
+    % Calculate the differences between cppPath and currentGridPos
+    differences = cppPath - currentGridPos';
+
+    % Calculate the distances using element-wise vector norm
+    distances = vecnorm(differences, 2, 2);
     [minDistance, closestIndex] = min(distances);
 
     % If the robot is close enough to the current target, move to the next point
