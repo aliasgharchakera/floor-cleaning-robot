@@ -39,6 +39,7 @@ load('M.mat');
 x = zeros(3,1);
 P = diag([0.0001; 0.0001; 0.0001]);
 xTruth = x;
+uncertainty = 0;
 
 
 % Set up VFH object for obstacle avoidance. Set the UseLidarScan property
@@ -71,7 +72,7 @@ rate = rateControl(10);
 % in place. Drive the robot by sending a message containing the angular
 % velocity and the desired linear velocity using the ROS publisher.
 prevTime = 1;
-while rate.TotalElapsedTime < 200
+while rate.TotalElapsedTime < 600
 
 	% Get laser scan data and create a lidarScan object
 	scanMsg = receive(laserSub);
@@ -87,7 +88,7 @@ while rate.TotalElapsedTime < 200
 
     currentPose = xTruth(:, end);
     % Adjust target direction based on CPP
-    [targetDir, cppPath] = adjustTargetDirection(cppPath, currentPose, grid_size); 
+    [targetDir, cppPath] = adjustTargetDirection(cppPath, currentPose, grid_size, uncertainty); 
     
     % Call VFH object to computer steering direction
 	steerDir = vfh(scan,targetDir);  

@@ -12,8 +12,7 @@ function cppPath = planCoveragePath(coverageMap)
         else  % Even rows go left
             yPath = numCellsY:-1:1;
         end
-        
-        % Append the path for the current row
+
         for y = yPath
             cppPath = [cppPath; [x, y]];
         end

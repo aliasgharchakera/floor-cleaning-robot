@@ -1,7 +1,8 @@
-function [targetDirection, updatedCppPath] = adjustTargetDirection(cppPath, currentPose, gridSize)
+function [targetDirection, updatedCppPath] = adjustTargetDirection(cppPath, currentPose, gridSize, uncertainty)
     % cppPath: The planned coverage path
     % currentPose: Current pose of the robot [x, y, theta]
     % gridSize: Size of each grid cell
+    % uncertainty: Amount of uncertainty to introduce (in radians)
 
     % Find the closest point on the path to the robot's current position
     % Convert the robot's current position to grid coordinates
@@ -23,6 +24,9 @@ function [targetDirection, updatedCppPath] = adjustTargetDirection(cppPath, curr
     % Compute the target direction towards the next point
     nextPoint = cppPath(closestIndex, :) * gridSize;
     targetDirection = atan2(nextPoint(2) - currentPose(2), nextPoint(1) - currentPose(1));
+
+    % Add random noise to the target direction
+    targetDirection = targetDirection + uncertainty * randn();
 
     % Update the coverage path (remove visited points)
     updatedCppPath = cppPath(closestIndex:end, :);
