@@ -5,6 +5,7 @@
 \usepackage{titletoc}
 \usepackage{titlesec}
 \usepackage{listings}
+\usepackage{float}
 
 % Page setup
 \geometry{
@@ -107,6 +108,14 @@ algorithms and most importantly the difference between path-finding and the
 coverage problem. While our project mainly focuses on the coverage of the robot in the room to clean the floors efficiently, I am still extremely interested in path finding algorithms and I want to learn more about them especially in regards to how autonomous robots can find the optimum path underwater. 
 \newline \\
 With regards to our project specifically, we focused on path coverage algorithms along with obstacle avoidance and not path finding algorithms. For path coverage we used spiral random walk which is one of the clever ways to cover the extent the entirety of the room theoretically. In addition, when searching for literature, I found that random walk is used for coverage problems previously, and spiral walk is considered to be the best random walk algorithm, so the literature does support our use of spiral random walk. Finally I would give myself an A for formulating and solving the problem theoretically before moving on to its practical implementation. I believe bouncing theoretical ideas off of each other in the group really helped us finalize a strategy for the project.
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.5\textwidth]{../../images/squiggles2.png}}
+    \caption{Plot from a spiral random walk algorithm implemented for floor cleaning robot}
+    \label{fig10}
+\end{figure}
+
+The robot first starts spiral movements, and then when it hits an obstacle, it moves until it has enough space to start spiral movements again. 
 
 \section{Ending Notes}
 Overall the course Mobile Robotics was even more challenging than I estimated it to be. Especially coming from a computer science background and having so little knowledge about fundamental concepts such as feedback loop, it was a steep learning curve, but I loved every minute of this confusing journey because the peers in the course and the instructor have been extremely helpful and considerate throughout. The course was a proper learning journey from quizzes to the project, and I am grateful for sticking with the course to the end. 
