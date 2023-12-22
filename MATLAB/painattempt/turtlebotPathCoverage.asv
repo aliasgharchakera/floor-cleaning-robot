@@ -52,7 +52,7 @@ vfh.MinTurningRadius = 0.2;
 vfh.SafetyDistance = 0.1;
 
 targetDir = 0;
-room_dimensions = [13, 7]; % Example dimensions, adjust as needed
+room_dimensions = [5, 5]; % Example dimensions, adjust as needed
 grid_size = 0.5; % Example grid size, adjust as needed
 % Initialize Coverage Map
 coverageMap = initializeCoverageMap(room_dimensions, grid_size); 
@@ -139,8 +139,6 @@ end
 % Disconnect from the ROS network
 rosshutdown;
 
-disp(coverageMap);
-
 % Plotting data
 figure;
 plot(xTruth(1,:),xTruth(2,:),'k.');
@@ -148,13 +146,15 @@ hold on;
 % plot(x(1,:),x(2,:),'b.');
 % legend('Ground Truth');
 title('Path taken by the robot');
+% Plot a 5 x 5 grid
 % figure;
 hold on;
 grid on;
-xlim([-6, 7]);
-ylim([-2, 5]);
+xlim([0, 5]);
+ylim([0, 5]);
 for i = -6:7
-    plot([i, i], [-2, 5], 'k');
-    plot([-6, 7], [i, i], 'k');
+    plot([i, i], [0, 5], 'k');
+    plot([0, 5], [i, i], 'k');
 end
 % title('Grid');
+
