@@ -1,5 +1,11 @@
 # Babar Azam Floor Cleaning Robot
 
-## About
+## Introduction
+This is a Coverage Path Planning algorithm for a floor cleaning robot. This project was done as a part of the course EE/CE 468 Mobile Robotics at Habib University, Karachi.
 
-Floor cleaning robot created keeping in mind obstacle avoidance and floor coverage. Obstacle avoidance is implemented through Vector Field Histogram + (VFH+) algorithm, whereas, coverage was implemented through random spiral walk. 
+## Platform
+The algorithm was tested on a Turtlebot3 Burger robot in Gazebo. The robot was equipped with a Lidar sensor and a camera. The algorithm was written in MATLAB.
+
+## Authors
+- [Ali Asghar Chakera](https://github.com/aliasgharchakera)
+- [Azeem Haider](https://github.com/A-Haider13)
